@@ -13,7 +13,7 @@ db.init_app(app)
 app.register_blueprint(main)
 
 # Socket.IO kurulumu
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*",async_mode="gevent")
 
 # Socket.IO Event Handlers
 @socketio.on('connect')
