@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol - Chat Uygulaması</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>📝 Kayıt Ol</h1>
+                <p>Yeni hesap oluşturun ve sohbete katılın</p>
+            </div>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">👤 Kullanıcı Adı</label>
+                    <input type="text" id="username" class="form-control" placeholder="Kullanıcı adınızı girin" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">📧 E-posta Adresi</label>
+                    <input type="email" id="email" class="form-control" placeholder="ornek@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">🔒 Şifre</label>
+                    <input type="password" id="password" class="form-control" placeholder="Güçlü bir şifre oluşturun" required>
+                </div>
+                
+                <button type="submit" id="registerBtn">
+                    <span id="registerText">Kayıt Ol</span>
+                    <span id="registerLoading" class="loading" style="display: none;"></span>
+                </button>
+            </form>
+            
+            <div class="auth-divider">
+                <span>veya</span>
+            </div>
+            
+            <div class="auth-links">
+                <p>Zaten hesabınız var mı? <a href="/login">Giriş Yapın</a></p>
+                <p><a href="/">← Ana Sayfaya Dön</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/register.js"></script>
+</body>
+</html>

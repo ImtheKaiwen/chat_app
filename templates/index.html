@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Uygulaması - Anasayfa</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header">
+            <h1>💬 Chat Uygulaması</h1>
+            {% if user %}
+            <div class="user-info">
+                <p>👤 {{user.username}}</p>
+                <p>📧 {{user.email}}</p>
+                <a href="/logout" class="btn btn-secondary">Çıkış Yap</a>
+            </div>
+            {% else %}
+            <div class="user-info">
+                <a href="/login" class="btn">Giriş Yap</a>
+                <a href="/register" class="btn btn-secondary">Kayıt Ol</a>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if user %}
+        <div class="grid">
+            <div class="card">
+                <h2>🎯 Mevcut Gruplar</h2>
+                <ul class="list" id="group-list">
+                    {% for group in groups %}
+                    <li class="list-item">
+                        <a href="/chat/{{ group.id }}"># {{ group.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if not groups %}
+                <p style="text-align: center; color: #666; font-style: italic;">
+                    Henüz grup bulunmuyor. İlk grubu oluşturmak için giriş yapın!
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="grid">
+            <div class="card">
+                <h2>🚀 Hoş Geldiniz!</h2>
+                <p style="margin-bottom: 20px; line-height: 1.6;">
+                    Gerçek zamanlı mesajlaşma deneyimi için hemen giriş yapın veya kayıt olun.
+                </p>
+                <div style="text-align: center;">
+                    <a href="/login" class="btn" style="margin-right: 10px;">Giriş Yap</a>
+                    <a href="/register" class="btn btn-secondary">Kayıt Ol</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>✨ Özellikler</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">💬 Gerçek zamanlı mesajlaşma</li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">👥 Grup sohbetleri</li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">🎨 Modern tasarım</li>
+                    <li style="padding: 10px 0;">📱 Responsive arayüz</li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
